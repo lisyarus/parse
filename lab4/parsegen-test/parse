@@ -1,0 +1,27 @@
+parser
+lexer
+%%
+#include "lexer.hpp"
+%%
+#include <boost/lexical_cast.hpp>
+%%
+n std::string
+op std::string
+ter std::string
+%%
+S std::string
+T std::string
+F std::string
+%%
+S
+% n T
+%%
+T
+%
+% S F
+%%
+F
+% op
+% S ter
+%%
+%%

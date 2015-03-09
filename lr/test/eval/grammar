@@ -1,0 +1,17 @@
+double
+S -> M -> return attr[0];
+S -> M SUM S -> return attr[0] + attr[2];
+S -> M SUB SS -> return attr[0] - attr[2];
+SS -> M -> return attr[0];
+SS -> M SUB SS -> return attr[0] + attr[2];
+SS -> M SUM S -> return attr[0] - attr[2];
+M -> T -> return attr[0];
+M -> T MULT M -> return attr[0] * attr[2];
+M -> T DIV MM -> return attr[0] / attr[2];
+MM -> T -> return attr[0];
+MM -> T DIV MM -> return attr[0] * attr[2];
+MM -> T MULT M -> return attr[0] / attr[2];
+T -> LPAREN S RPAREN -> return attr[1];
+T -> N -> return attr[0];
+T -> CONST -> return attr[0];
+T -> FUNC LPAREN S RPAREN -> return (* func[static_cast<int>(attr[0])])(attr[2]);

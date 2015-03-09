@@ -1,0 +1,3 @@
+int
+S -> LPAREN S RPAREN S -> return std::max(attr[1] + 1, attr[3]);
+S -> -> return 0;

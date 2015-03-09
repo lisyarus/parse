@@ -1,0 +1,20 @@
+lexer
+%%
+#include <string>
+%%
+#include <boost/lexical_cast.hpp>
+%%
+int
+std::string
+%%
+\d+
+term() = "Num";
+value<int>() = boost::lexical_cast<int>(std::string(begin, end));
+%%
+\+|-|\*|/
+term() = "Op";
+value<std::string>().assign(begin, end);
+%%
+\s+|\n
+%%
+%%

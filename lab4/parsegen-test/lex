@@ -1,0 +1,23 @@
+lexer
+%%
+#include <string>
+%%
+#include <boost/lexical_cast.hpp>
+%%
+std::string
+%%
+\d+
+term() = "n";
+value<std::string>().assign(begin, end);
+%%
+\+|\*|-
+term() = "op";
+value<std::string>().assign(begin, end);
+%%
+\?
+term() = "ter";
+value<std::string>().assign(begin, end);
+%%
+\s+|\n
+%%
+%%
